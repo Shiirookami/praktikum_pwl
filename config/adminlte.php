@@ -290,14 +290,19 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            'text' => 'blog',
+            'url'  => 'admin/blog',
+            'can'  => 'isUser',
         ],
         [
-            'text'         => 'buku',
+            'text'        => 'pages',
+            'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-file',
+            'can'       => ['isUser','isAdmin']
+        ],
+        [
+            'text' => 'buku',
             'url' => 'admin/books',
             'icon' => 'fas fa-fw fa-book',
             'can' => 'isAdmin',
@@ -312,28 +317,19 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Profile',
+            'url'  => 'admin.profile',
             'icon' => 'fas fa-fw fa-user',
+            'can'  => 'isAdmin',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => 'admin.password',
             'icon' => 'fas fa-fw fa-lock',
+            'can'  => 'isAdmin'
         ],
         [
             'text'    => 'multilevel',
@@ -427,7 +423,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
