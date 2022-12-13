@@ -1,7 +1,8 @@
 <?php
 
 return [
-
+    
+    
     /*
     |--------------------------------------------------------------------------
     | Title
@@ -290,46 +291,57 @@ return [
     */
 
     'menu' => [
+        // Navbar items:
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'isUser',
+            'type'         => 'navbar-search',
+            'text'         => 'search',
+            'topnav_right' => true,
+            'can'  => 'isAdmin',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'can'       => ['isUser','isAdmin']
-        ],
-        [
-            'text' => 'buku',
-            'url' => 'admin/books',
+            'text'         => 'Buku',
+            'url'         => 'admin/books',
             'icon' => 'fas fa-fw fa-book',
-            'can' => 'isAdmin',
+            'can'  => 'isAdmin',
         ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
+            'can'  => 'isAdmin',
         ],
 
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
+            'can'  => 'isAdmin',
         ],
-
+        [
+            'text' => 'blog',
+            'url'  => 'admin/blog',
+            'can'  => 'manage-blog',
+            'can'  => 'isAdmin',
+        ],
+        [
+            'text'        => 'pages',
+            'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
+            'can'  => 'isAdmin',
+        ],
         ['header' => 'account_settings'],
         [
-            'text' => 'Profile',
-            'url'  => 'admin.profile',
+            'text' => 'profile',
+            'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
             'can'  => 'isAdmin',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin.password',
+            'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-            'can'  => 'isAdmin'
+            'can'  => 'isAdmin',
         ],
         [
             'text'    => 'multilevel',
@@ -423,7 +435,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
